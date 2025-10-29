@@ -1,0 +1,15 @@
+async function loadData() {
+  try {
+    const res = await fetch("https://<senin-n8n-api-url>/endpoint", {
+      headers: {
+        "Authorization": "Bearer <TOKEN>" // eğer gerekliyse
+      }
+    });
+    if(!res.ok) throw new Error("API isteği başarısız: " + res.status);
+    const data = await res.json();
+    console.log(data);
+  } catch(err) {
+    console.error(err);
+  }
+}
+loadData();
